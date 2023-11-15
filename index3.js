@@ -1,3 +1,14 @@
+import inquirer from "inquirer";
+class EscapeRoom {
+  constructor() {
+    this.currentRoom = 1;
+    this.maxGuesses = 2;
+    this.guessCount = 0;
+    this.rooms = [
+      { description: 'You are in the office room. Look around and find hint to escape the room.', code: this.generateRandomCode() },
+      { description: 'You are in the hospital room. Look around and find hint to escape the room.', code: this.generateRandomCode() }      
+    ];
+  }
 
   checkCode(code) {
     return code == this.rooms[this.currentRoom - 1].code.toString();
