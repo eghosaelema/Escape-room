@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+
 class EscapeRoom {
   constructor() {
     this.currentRoom = 1;
