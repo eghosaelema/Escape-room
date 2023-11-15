@@ -99,3 +99,44 @@ class EscapeRoom {
     });
   }
 }
+
+
+
+class EscapeRoom {
+
+  constructor() {
+
+    this.currentRoom = 1;
+
+    this.maxGuesses = 2;
+
+    this.guessCount = 0;
+ 
+    this.rooms = [
+      { description: 'You are in the office room. Look around and find hint to escape the room.', code: this.generateRandomCode() },
+      { description: 'You are in the hospital room. Look around and find hint to escape the room.', code: this.generateRandomCode() }      
+    ];
+  }
+
+
+  startGame() {
+    console.log('Welcome to the Escape Room Game!');
+    this.playRoom();
+  }
+
+
+  playRoom() {
+
+    this.resetGuessCount();
+
+    this.displayRoomDescription();
+
+    inquirer.prompt(this.getActions()).then((action) => {
+      this.handleAction(action.choice);
+    });
+  }
+
+}
+
+const escapeRoomGame = new EscapeRoom();
+escapeRoomGame.startGame();
